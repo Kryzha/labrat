@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class RatMovement : MonoBehaviour
 {
-    [SerializeField]private float moveSpeed = 2f;
-    [SerializeField]private float sprintSpeed = 4f;
-    [SerializeField]private float mouseSensitivity = 3f;
-    [SerializeField]private float jumpForce = 3f;
+    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float sprintSpeed = 4f;
+    [SerializeField] private float mouseSensitivity = 3f;
+    [SerializeField] private float jumpForce = 3f;
 
     public bool isGrounded;
     private float horizontalMouse;
@@ -22,6 +22,8 @@ public class RatMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;  // Prevent rotation from physics interactions
+        rb.drag = 2f;              // Add drag to reduce sliding
         currentRotation = transform.rotation;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -37,36 +39,26 @@ public class RatMovement : MonoBehaviour
     {
         float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : moveSpeed;
 
-        verticalMove = Input.GetAxis("Vertical") * new Vector3(transform.forward.x, 0f, transform.forward.z);
+        verticalMove = Input.GetAxis("Vertical") * transform.forward;
         horizontalMouse = Input.GetAxis("Mouse X") * mouseSensitivity;
 
-        Vector3 direction = verticalMove;
+        // Set rotation based on mouse input
         currentRotation.y += horizontalMouse;
-
-        // Плавне гальмування для усунення залишкового руху
-        if (verticalMove == Vector3.zero && isGrounded)
-        {
-            rb.velocity = new Vector3(0, rb.velocity.y, 0);
-        }
-        else
-        {
-            transform.position += direction * currentSpeed * Time.deltaTime;
-        }
-
         transform.rotation = Quaternion.Euler(0f, currentRotation.y, 0f);
         cameraTransform.rotation = Quaternion.Euler(cameraTransform.rotation.x, currentRotation.y, 0f);
+
+        // Apply movement to Rigidbody velocity
+        Vector3 targetVelocity = verticalMove * currentSpeed;
+        rb.velocity = new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.z);
     }
+
     void Jump()
     {
         isGrounded = Physics.CheckSphere(transform.position, 0.1f, groundMask);
 
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f)) // Замініть 1f на висоту, на якій ви хочете перевірити
+        if (isGrounded && Input.GetButtonDown("Jump"))
         {
-            if (hit.distance < 0.1f && Input.GetButtonDown("Jump"))
-            {
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            }
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 }
