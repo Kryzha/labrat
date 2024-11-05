@@ -364,7 +364,8 @@
 "Assets/Scripts/DoorOpen System/PlateDoor System/PlateDoorController.cs"
 "Assets/Scripts/DoorOpen System/TriggerDoor System/TriggerDoorController.cs"
 "Assets/Scripts/DoorOpen System/TriggerDoor System/TriggerSciFIDoorController.cs"
-"Assets/Scripts/Player/Climbing.cs"
+"Assets/Scripts/Player/LedgeGrabbing.cs"
+"Assets/Scripts/Player/PlayerMovement.cs"
 "Assets/Scripts/Player/RatMovement.cs"
 -langversion:9.0
 /deterministic
