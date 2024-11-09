@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 169070346}
   - component: {fileID: 169070345}
   - component: {fileID: 169070344}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1427,6 +1427,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5441095159546034802, guid: c1671128f7a6aa04faa88966819c08b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1130440482}
+    - targetCorrespondingSourceObject: {fileID: 5441095159546034802, guid: c1671128f7a6aa04faa88966819c08b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1130440484}
   m_SourcePrefab: {fileID: 100100000, guid: c1671128f7a6aa04faa88966819c08b2, type: 3}
 --- !u!4 &491484012 stripped
 Transform:
@@ -1661,7 +1664,7 @@ GameObject:
   - component: {fileID: 823001776}
   - component: {fileID: 823001775}
   - component: {fileID: 823001774}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1871,7 +1874,7 @@ GameObject:
   - component: {fileID: 891161026}
   - component: {fileID: 891161025}
   - component: {fileID: 891161024}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2215,6 +2218,25 @@ MonoBehaviour:
     m_Bits: 64
   excludeLayerName: 
   openDoorKey: 101
+--- !u!114 &1130440484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130440481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 997874c631245d54fb6f89a0473f8965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 128
+  wallDetectionDistance: 5
+  climbSpeed: 2
+  climbUpwardForce: 5
+  isClimbing: 0
 --- !u!1001 &1277970265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2316,7 +2338,7 @@ GameObject:
   - component: {fileID: 1325757612}
   - component: {fileID: 1325757611}
   - component: {fileID: 1325757610}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3203,7 +3225,7 @@ GameObject:
   - component: {fileID: 2001524179}
   - component: {fileID: 2001524178}
   - component: {fileID: 2001524177}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

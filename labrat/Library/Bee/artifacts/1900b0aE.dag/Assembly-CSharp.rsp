@@ -367,6 +367,7 @@
 "Assets/Scripts/Player/LedgeGrabbing.cs"
 "Assets/Scripts/Player/PlayerMovement.cs"
 "Assets/Scripts/Player/RatMovement.cs"
+"Assets/Scripts/Player/WallClimbing.cs"
 -langversion:9.0
 /deterministic
 /optimize+

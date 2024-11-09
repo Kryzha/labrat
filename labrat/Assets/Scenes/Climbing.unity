@@ -612,6 +612,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3454399992588795315, guid: 38375592df6675e4aa2733d41f21c114, type: 3}
+      propertyPath: wallClimbing
+      value: 
+      objectReference: {fileID: 924799558}
+    - target: {fileID: 3454399992588795315, guid: 38375592df6675e4aa2733d41f21c114, type: 3}
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 1157083237}
@@ -623,6 +627,10 @@ PrefabInstance:
       propertyPath: wallDetectionDistance
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 3454399992588795315, guid: 38375592df6675e4aa2733d41f21c114, type: 3}
+      propertyPath: adjacentWallDetectionDistance
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5174014449036337025, guid: 38375592df6675e4aa2733d41f21c114, type: 3}
       propertyPath: m_Name
       value: Player
@@ -632,6 +640,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5174014449036337025, guid: 38375592df6675e4aa2733d41f21c114, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 924799558}
     - targetCorrespondingSourceObject: {fileID: 5174014449036337025, guid: 38375592df6675e4aa2733d41f21c114, type: 3}
       insertIndex: -1
       addedObject: {fileID: 924799557}
@@ -769,6 +780,40 @@ MonoBehaviour:
   ledgeMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &924799558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601578606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2b738c73adf73429400f8156787bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 2
+  wallDetectionDistance: 0.01
+  climbUpwardForce: 1
+  isTouchingWall: 0
+  isClimbing: 0
+  isGrounded: 0
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 128
+  cameraTransform: {fileID: 1157083237}
+  ratMovement: {fileID: 924799559}
+--- !u!114 &924799559 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3454399992588795315, guid: 38375592df6675e4aa2733d41f21c114, type: 3}
+  m_PrefabInstance: {fileID: 842235940}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601578606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a83d5a7de0f5d4caa322b9ff8f5097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1157083237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1153098766157507813, guid: 69505114a6876c342ae9fe67128cbde9, type: 3}
